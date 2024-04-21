@@ -1,0 +1,268 @@
+@font-face {
+    font-family: 'comfortaa';
+    src: url('/assets/font/comfortaa-regular-webfont.woff2') format('woff2'),
+        url('/assets/font/comfortaa-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+::-webkit-scrollbar {
+    width: 1rem;
+    height: 0.1rem;
+    border-radius: 10px;
+    background-color: var(--bg2);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+  }
+
+body {
+    background-color: var(--bg);
+    font-family: comfortaa;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    overflow-x: hidden;
+    color: var(--text);
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+a,
+a:visited {
+    color: var(--link);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+    margin: 0.5rem;
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+}
+
+a, img{
+    /* display: inline; */
+}
+
+h1 {
+    font-size: 3.7rem;
+    color: var(--accent);
+    margin: 30px;
+}
+
+h2 {
+    font-size: 1.6rem;
+    color: var(--highlight);
+}
+
+h3 {
+    font-size: 1.3rem;
+    color: var(--highlight);
+}
+
+h4 {
+    font-size: 2rem;
+}
+
+h5 {
+    font-size: 1.8rem;
+}
+
+h6 {
+    font-size: 1.5rem;
+}
+
+p,
+li,
+a {
+    font-size: 1.5rem;
+    line-height: 1.2em;
+    transition: all .1s ease;
+}
+
+a{
+    width: fit-content;
+    align-self: center;
+}
+
+a:hover{
+    filter: brightness(50%);
+}
+
+article {
+    word-wrap:break-word;
+    transition: all .5s ease;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg2);
+    width: 500px;
+    height: 100%;
+    margin: 0.5rem;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.253) 0px 22px 70px 4px;
+}
+
+article:hover, marquee:hover{
+    box-shadow: var(--accent) 0px 0px 0px 1px inset, var(--accent) 0px 0px 0px 1px;
+}
+
+marquee{
+    background-color: var(--bg2);
+    color: var(--accent);
+    font-weight: bold;
+    margin: 0.5rem;
+    border-radius: 15px;
+    padding: 5px;
+    width: 1000px;
+    align-self: center;
+}
+
+article.large{
+    width: 1000px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    filter: var(--recolor);
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.album{
+    border: 0px;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    max-height: 7rem;
+    max-width: 7rem;
+    background-color: #152138;
+}
+
+.spotify{
+    align-self: center;
+    text-align: left;
+    color: var(--accent);
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+#song_info{
+    max-height: 200px;
+    font-size: 90%;
+    overflow-y: none;
+}
+
+.highlight{
+    color: var(--highlight);
+}
+
+.gallery{
+    column-count: 3;
+    column-gap: 2%;
+    display: block;
+    padding: 35px;
+}
+
+.buttons a img{
+    margin: 5px;
+    width: 88px;
+    height: 31px;
+    image-rendering: pixelated;
+}
+
+/* .buttonLink{
+    text-decoration: none;
+    margin: 0;
+} */
+
+.gallery img{
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 5%;
+}
+
+img.profile {
+    width: 30%;
+    align-self: center;
+    margin: 10px;
+    border-radius: 100%;
+}
+
+/* Background Gradient */
+body::before{
+    opacity: 30%;
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(112deg, rgba(252, 40, 72, 0.062) 0%, rgba(255,163,67,0.062) 14.28%, rgba(253,252,116,0.062) 28.56%, rgba(113,188,120,0.062) 42.84%, rgba(15,76,129,0.062) 57.12%, rgba(116,66,200,0.062) 71.4%, rgba(251,126,253,0.062) 85.68%);
+    background-size: 100% 5px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* MQ */
+@media (max-width: 1100px){
+    h1{
+        font-size: 150%;
+    }
+    p,h2,h3,h4,h5,a, li{
+        font-size: 180%
+    }
+    section.row{
+        flex-direction: column-reverse;
+    }
+    article{
+        width: 100%;
+        margin-left: 0;
+    }
+    marquee{
+        width: 100%;
+    }
+    main{
+        flex-direction: column-reverse;
+        width: 100vw;
+        position: relative;
+        min-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+    .row{
+        flex-direction: column;
+    }
+    article.large{
+        width: auto;
+    }
+   }
