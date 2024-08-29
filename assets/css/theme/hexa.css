@@ -1,0 +1,28 @@
+:root {
+    --primary: black;
+    --secondary: #ffffff;
+    --tertiary: black;
+    --quaternary: #f5f5f5;
+    --hover: black;
+    --glass: transparent;
+    --recolor: invert(1) brightness(100);
+}
+
+section{
+    border: double 3px white;
+    padding: 1em;
+    background-color: var(--primary);
+}
+
+.background {
+    background: url(https://omnipresence.neocities.org/assets/skska.png);
+    background-size: 248px;
+}
+
+.glass {
+    backdrop-filter: none;
+}
+
+.gallery{
+    scale: 1;
+}

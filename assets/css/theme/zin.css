@@ -1,0 +1,22 @@
+:root {
+    --primary: #14100E;
+    --secondary: #E64D20;
+    --tertiary: #0c0c0c;
+    --quaternary: #f5f5f5;
+    --hover: #14100E;
+    --glass: var(--primary);
+    --recolor: brightness(0) saturate(100%) invert(28%) sepia(65%) saturate(2327%) hue-rotate(354deg) brightness(105%) contrast(84%);
+}
+
+body{
+    color: #FDDF96;
+    font-family: 'Space Mono', sans-serif;
+}
+
+nav{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1,h2,h3,h4,h5,h6{
+    color: #F9992A;
+}

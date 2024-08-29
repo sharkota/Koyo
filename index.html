@@ -2,72 +2,240 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Cache-Control" content="max-age=86400">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/assets/image/favicon.ico">
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
-    <link href="/assets/css/theme/dark.css" rel="stylesheet" type="text/css" media="all">
-    <meta property="og:type" content="video">
-    <meta property="og:video:type" content="video/mp4">
-    <meta property="og:url"
-        content="https://www.dropbox.com/scl/fi/ehtjhfc6t0ghm84l23od6/bb.mov?rlkey=iyms892r47gwadzr8sp343kml&dl=1">
-    <meta property="og:video:url"
-        content="https://www.dropbox.com/scl/fi/ehtjhfc6t0ghm84l23od6/bb.mov?rlkey=iyms892r47gwadzr8sp343kml&dl=1">
+    <link href="style.css" rel="stylesheet">
+    <link href="/assets/css/theme/mono.css" rel="stylesheet" id="theme">
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Koyo" />
+    <meta property="twitter:description" content="hobbyist programmer, professional dæmon"/>
+    <meta property="twitter:image" content="/assets/image/banner.png" />
+    <style id="noscript">
+        .show {
+            display: inherit;
+        }
+    </style>
     <title>Koyo</title>
 </head>
-<body>
-    <h1>Koyo</h1>
-    <main>
-        <section class="row">
-            <section class="column">
-                <article>
-                    <h2>Projects</h2>
-                    <a href="https://github.com/sharkota/Hoverable-Discord-Theme">Hover Discord Theme</a>
-                    <a href="https://kota.is-a.dev/">Project Landing</a>
-                    <a href="https://kota.is-a.dev/Awful-Project-Gen/">Awful-Project-Gen</a>
-                    <a href="https://gist.github.com/sharkota/93b71e9ac37bde02882cdbc2ed39bf50">JS Gallery</a>
-                    <a href="https://kota.is-a.dev/Clean-Tab/">Clean-Tab</a>
-                    <a href="https://dakota.nekoweb.org">Fake Terminal</a>
-                </article>
-                <article>
-                    <h2>Directories</h2>
-                    <a href="/photos/">Photos</a>
-                    <a href="/buttons/">Buttons</a>
-                </article>
-                <article>
-                    <h2>Last Updated</h2>
-                    <p>Thursday, May 2, 2024</p>
-                    <p>Added Hoverable Discord Theme</p>
-                </article>
-            </section>
-            <section class="column">
-                <article>
-                    <h2>About</h2>
-                    <img alt="A Dæmon." class="profile" src="/assets/image/dæmon.png">
-                    <p>hi im kota, i make things :D</p>
-                    <span class="column highlight"><p><img class="icon" src="/assets/image/clock.png"><span id="time"></span></p></span>
-                    <a href="https://github.com/sharkota"><img class="icon" src="/assets/image/github.png">Github</a>
-                    <a href="https://neocities.org/site/koyo"><img class="icon" src="/assets/image/neocities.png">Neocities</a>
-                    <a href="mailto:dakotashi17@gmail.com"><img class="icon" src="/assets/image/mail.png">E-Mail</a>
-                </article>
-                <article>
-                    <h2 id="listening">Currently listening to...</h2>
-                    <span class="row spotify" style="flex-direction: row !important;">
-                        <a id="song_link">
-                            <img id="album_art" class="album">
+
+<body class="crt">
+    <!-- special -->
+    <span class="background"></span>
+    <span class="vignette"></span>
+    <span class="glass" id="glass"></span>
+    <section id="intro" class="blink" style="display: none;" tabindex="0">
+        <h1>koyo</h1>
+    </section>
+    <!-- navigation -->
+    <nav id="nav">
+        <ul>
+            <a href="#user">
+                <li>user</li>
+            </a>
+            <a href="#log">
+                <li>log</li>
+            </a>
+            <label for="files" tabindex="0">
+                <li class="folder"><a>files</a><input type="checkbox" id="files">
+                    <ul>
+                        <a href="#dcim">
+                            <li>dcim</li>
                         </a>
-                        <p style="max-width: 250px;" id="song_info"><span id="song_name">nothing!</span><br><span id="artist_name"></span><br><span
-                                id="album_name"></span></p>
-                    </span>
-                </article>
-            </section>
+                        <a href="#links">
+                            <li>links</li>
+                        </a>
+                    </ul>
+                </li>
+            </label>
+            <label for="projects" tabindex="0">
+                <li class="folder"><a>projects</a><input type="checkbox" id="projects" class="no_interact">
+                    <ul>
+                        <a href="#slop.chat">
+                            <li>slop.chat</li>
+                        </a>
+                        <a href="#koyo">
+                            <li>koyo.neocities</li>
+                        </a>
+                        <a href="#nekoweb">
+                            <li>dakota.nekoweb</li>
+                        </a>
+                    </ul>
+                </li>
+            </label>
+            <hr>
+            <li class="action" onclick="((e) => { localStorage.removeItem('new_user'); window.location.href = '/' })()">
+                <a>play intro</a>
+            </li>
+            <li class="action" onclick="((e) => { music.play() })()">
+                <a>play music</a>
+            </li>
+            <li class="action" onclick="((e) => { music.pause() })()">
+                <a>mute music</a>
+            </li>
+            <label for="themes" tabindex="0">
+                <li class="folder"><a>themes</a><input type="checkbox" id="themes" class="no_interact">
+                    <ul>
+                        <li class="action" onclick="((e) => { change_theme('mono') })()">
+                            <a>mono</a>
+                        </li>
+                        <li class="action" onclick="((e) => { change_theme('skies') })()">
+                            <a>skies</a>
+                        </li>
+                        <li class="action" onclick="((e) => { change_theme('hexa') })()">
+                            <a>hexa</a>
+                        </li>
+                        <li class="action" onclick="((e) => { change_theme('hosmic') })()">
+                            <a>hosmic</a>
+                        </li>
+                        <li class="action" onclick="((e) => { change_theme('yapper') })()">
+                            <a>yapper</a>
+                        </li>
+                        <li class="action" onclick="((e) => { change_theme('slop') })()">
+                            <a>slop</a>
+                        </li>
+                        <li class="action" onclick="((e) => { change_theme('zin') })()">
+                            <a>zin</a>
+                        </li>
+                        <li class="action" onclick="((e) => { change_theme('blue') })()">
+                            <a>blue</a>
+                        </li>
+                    </ul>
+                </li>
+            </label>
+        </ul>
+        <a id="mobile_down">⬆</a>
+    </nav>
+    <!-- main -->
+    <main id="main">
+        <section id="user" class="show" style="text-align: center;">
+            <h1>user</h1>
+            <img src="/assets/img/pfp.png" class="corner_border">
+            <h2>koyo</h2>
+            <p>hobbyist programmer, professional dæmon</p>
+            <p>status: <span id="status"></span></p>
+            <a href="https://github.com/sharkota"><img class="icon" src="/assets/img/icon/github.png">Github</a>
+            <a href="https://neocities.org/site/koyo"><img class="icon"
+                    src="/assets/img/icon/neocities.png">Neocities</a>
+            <a href="mailto:dakotashi17@gmail.com"><img class="icon" src="/assets/img/icon/mail.png">E-Mail</a>
         </section>
-        <marquee>
-            dæmons in my computer ● efridur "unspeakable crimes" flubbergums ● stream kill bill: the rapper ● how I be staring at the double buttered popcorn in the movie theater when nobody is looking ● hot vampires in your area! ● the slop has fallen, millions must larp ● my dreamcast still broke ● return to slopgartha ● no larps, no soys, only slop ● Lorem slopsum dolor soy amet, conlarpetur adipisicing e-soy.
-        </marquee>
+        <section id="log" class="show">
+            <h1>log</h1>
+            <h2>aug, 28, 2024</h2>
+            <p>we'll see how long this one will last</p>
+        </section>
+        <section id="dcim" class="show">
+            <h1>dcim</h1>
+            <span class="gallery">
+                <img src="/assets/img/dcim/bridge.jpg" loading="lazy">
+                <img src="/assets/img/dcim/lake.jpg" loading="lazy">
+                <img src="/assets/img/dcim/lake2.jpg" loading="lazy">
+                <img src="/assets/img/dcim/lines.jpg" loading="lazy">
+                <img src="/assets/img/dcim/light.jpg" loading="lazy">
+                <img src="/assets/img/dcim/sky.jpg" loading="lazy">
+                <img src="/assets/img/dcim/sky2.jpg" loading="lazy">
+                <img src="/assets/img/dcim/sky3.jpg" loading="lazy">
+                <img src="/assets/img/dcim/sunset.jpg" loading="lazy">
+                <img src="/assets/img/dcim/road.jpg" loading="lazy">
+                <img src="/assets/img/dcim/town.jpg" loading="lazy">
+                <img src="/assets/img/dcim/trees.jpg" loading="lazy">
+            </span>
+        </section>
+        <section id="links" class="show">
+            <h1>links</h1>
+            <p style="text-align: center;">i have a hard time keeping track of buttons. if you are a mutual and are not
+                here, please <a href="mailto:dakotashi17@gmail.com">email me.</a></p>
+            <h2>koyo</h2>
+            <span class="buttons">
+                <a> <img src="/assets/img/buttons/koyo-button-green.png"></a>
+                <a> <img src="/assets/img/buttons/koyo-button-blue.png"></a>
+                <a> <img src="/assets/img/buttons/koyo-button-gold.png"></a>
+                <a> <img src="/assets/img/buttons/koyo-button-pink.png"></a>
+                <a> <img src="/assets/img/buttons/koyo-button.png"></a>
+            </span>
+            <h2>inspiration</h2>
+            <span class="buttons">
+                <a href="https://fretnoize.neocities.org"><img src="/assets/img/buttons/fretnoize.png"></a>
+                <a href="https://saint-images.neocities.org/"><img src="/assets/img/buttons/me-zanarkand.png"></a>
+                <a href="https://kry.pt"><img src="/assets/img/buttons/Krypt.gif"></a>
+                <a href="https://freckleskies.neocities.org"><img src="/assets/img/buttons/freckleskies.gif"></a>
+                <a href="https://hosma.neocities.org"><img src="/assets/img/buttons/hosma.png"></a>
+                <a href="https://theabsoluterealm.com/"><img src="/assets/img/buttons/arbutton.gif"></a>
+                <a href="https://mystsaphyr.me"><img src="/assets/img/buttons/myst_equalizer.gif"></a>
+                <a href="https://psychicnewborn.neocities.org"><img src="/assets/img/buttons/psychic-newborn.gif"></a>
+                <a href="https://omnipresence.neocities.org"><img src="/assets/img/buttons/omni.gif"></a>
+                <a href="https://tilde.team/~zinricky/"><img src="/assets/img/buttons/zinbutton.png"></a>
+            </span>
+            <h2>appreciation</h2>
+            <span class="buttons">
+                <a href="https://personally-comfy.net"><img src="/assets/img/buttons/personally_comfy.gif"></a>
+                <a href="https://lhfm.neocities.org"><img src="/assets/img/buttons/lhfm.png"></a>
+                <a href="https://jackomix.neocities.org"><img src="/assets/img/buttons/jackomix.gif"></a>
+                <a href="https://shishka.neocities.org/"><img src="/assets/img/buttons/shishka-go-go-go.gif"></a>
+                <a href="https://scarbyte.com"><img src="/assets/img/buttons/mace486.gif"></a>
+                <a href="https://undoified.neocities.org/"><img src="/assets/img/buttons/undoified.gif"></a>
+                <a href="https://magnetware.neocities.org/"><img src="/assets/img/buttons/emelhnn.jpg"></a>
+                <a href="https://www.bruh.ltd"><img src="/assets/img/buttons/kirby.png"></a>
+                <a href="https://dawnvoid.neocities.org/"><img src="/assets/img/buttons/dawn.gif"></a>
+                <a href="https://bytemoth.neocities.org/"><img src="/assets/img/buttons/i-brook.png"></a>
+                <a href="https://cyuucat.neocities.org"><img src="/assets/img/buttons/cyuu.gif"></a>
+                <a href="https://errormine.neocities.org"><img src="/assets/img/buttons/errormine-button.gif"></a>
+                <a href="https://slowie.neocities.org"><img src="/assets/img/buttons/slowie.gif"></a>
+                <a href="https://ratpilled.neocities.org"><img src="/assets/img/buttons/ratpilled.gif"></a>
+                <a href="https://cloverbell.neocities.org/"><img src="/assets/img/buttons/cloverbellbanner.gif"></a>
+                <a href="https://carteblanc.neocities.org"><img src="/assets/img/buttons/carte.png"></a>
+                <a href="https://arlita.neocities.org"><img src="/assets/img/buttons/arlita.gif"></a>
+            </span>
+        </section>
+        <section id="slop.chat" class="show">
+            <h1>slop.chat</h1>
+            <p>a spinoff of "rats.chat", a funny chat website made by a friend. while slop.chat did not last long it was
+                a good development experience, and so far is the only fullstack project that ive put on the web.</p>
+            <p>it runs on node and uses express & socket.io mainly.</p>
+            <h2>intro gif</h2>
+            <img src="/assets/img/projects/slop.chat/intro.gif" class="corner_border">
+            <h2>login page</h2>
+            <img src="/assets/img/projects/slop.chat/login.png" class="corner_border">
+            <h2>chat page</h2>
+            <img src="/assets/img/projects/slop.chat/chat.png" class="corner_border">
+            <h2>settings page</h2>
+            <img src="/assets/img/projects/slop.chat/settings.png" class="corner_border">
+            <h2>invite page</h2>
+            <img src="/assets/img/projects/slop.chat/invite.png" class="corner_border">
+        </section>
+        <section id="koyo" class="show">
+            <h1>koyo</h1>
+            <p>the site you are on right now. it has gone through many iterations, and continues to be a work i change
+                often. neocities is the first thing that got me into web dev and also programming as a whole.</p>
+            <p>below you will find various media of past versions of the site</p>
+            <img src="/assets/img/projects/koyo/seventh.png" class="corner_border">
+            <img src="/assets/img/projects/koyo/sixth.png" class="corner_border">
+            <img src="/assets/img/projects/koyo/fifth.png" class="corner_border">
+            <img src="/assets/img/projects/koyo/fourth.png" class="corner_border">
+            <img src="/assets/img/projects/koyo/third.png" class="corner_border">
+            <img src="/assets/img/projects/koyo/first.png" class="corner_border">
+            <img src="/assets/img/projects/koyo/third_card.png" class="corner_border">
+            <img src="/assets/img/projects/koyo/second_card.png" class="corner_border">
+        </section>
+        <section id="nekoweb" class="show">
+            <h1>nekoweb</h1>
+            <p>a small interactive site i made shortly after nekoweb started up.</p>
+            <p>below is a screenshot of the page, but unlike some other projects it is still up <a
+                    href="https://dakota.nekoweb.org" target="_blank">here</a>.</p>
+            <img src="/assets/img/projects/nekoweb/nekoweb.png" class="corner_border">
+            <p>the javascript, is more than a little cursed, and if you dig around in it you might even find some easer
+                eggs...</p>
+        </section>
     </main>
-    <script src="/assets/js/time.js"></script>
-    <script src="/assets/js/lanyard.js"></script>
+    <audio src="/assets/audio/track.wav" id="music"></audio>
+    <!-- there isnt a ton going on here, but i like to keep even small things seperated into their own files -->
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/intro.js"></script>
+    <script src="/assets/js/img.js"></script>
+    <script src="/assets/js/nav.js"></script>
+    <script src="/assets/js/mar.js"></script>
+    <script src="/assets/js/status.js"></script>
+    <script id="gallery_script" data-selector=".gallery" src="/assets/js/gallery.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,47 @@
+:root {
+    --primary: #23272e;
+    --secondary: #d17374;
+    --tertiary: #0c0c0c;
+    --quaternary: #f5f5f5;
+    --hover: #0a0a0a;
+    --glass: #0a0a0af7;
+    --recolor: brightness(0) saturate(100%) invert(61%) sepia(39%) saturate(952%) hue-rotate(309deg) brightness(88%) contrast(81%);
+}
+
+body,
+p {
+    color: #d7d7d7;
+    font-family: "Source Sans 3", sans-serif;
+}
+
+body {
+    background-image: url(https://hosma.neocities.org/10/css/theme/default.jpg);
+    background-size: cover;
+}
+
+section {
+    box-shadow: 0 0 16px black;
+    border-radius: 10px;
+    padding: 3em;
+    background-color: var(--primary);
+    min-width: 70%;
+}
+
+.glass {
+    backdrop-filter: none;
+    background-color: transparent;
+}
+
+.background,
+.vignette {
+    display: none;
+}
+
+.gallery{
+    scale: 1;
+}
+
+#user > img{
+    max-width: 50%;
+    align-self: center;
+}

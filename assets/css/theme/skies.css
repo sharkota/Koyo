@@ -1,0 +1,10 @@
+@import url('/assets/css/scanlines.css');
+:root {
+    --primary: #111111;
+    --secondary: #75549b;
+    --tertiary: #181818;
+    --quaternary: #f5f5f5;
+    --hover: #0a0a0a;
+    --glass: #0a0a0af7;
+    --recolor: brightness(0) saturate(100%) invert(39%) sepia(9%) saturate(2682%) hue-rotate(225deg) brightness(93%) contrast(91%);
+}

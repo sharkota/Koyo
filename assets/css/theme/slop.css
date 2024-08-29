@@ -1,0 +1,15 @@
+:root {
+    --primary: #0a0a0a;
+    --secondary: #ffd800;
+    /* --secondary: #ffba00; */
+    --tertiary: #0c0c0c;
+    --quaternary: #f5f5f5;
+    --hover: #0a0a0a;
+    --glass: #0a0a0af7;
+    --glass: var(--tertiary);
+    --recolor: brightness(0) saturate(100%) invert(77%) sepia(75%) saturate(650%) hue-rotate(357deg) brightness(99%) contrast(106%);
+}
+
+/* .corner_border {
+    outline: var(--t) solid rgb(26, 26, 26);
+} */

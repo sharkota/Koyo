@@ -1,0 +1,19 @@
+:root {
+    --primary: #202b38;
+    --secondary: #32a5ff;
+    --tertiary: black;
+    --quaternary: #f5f5f5;
+    --hover: black;
+    --glass: var(--primary);
+    --recolor: brightness(0) saturate(100%) invert(55%) sepia(76%) saturate(1972%) hue-rotate(182deg) brightness(99%) contrast(101%);
+}
+
+body, p {
+    color: #dbdbdb;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+}
+
+h1, h2 ,h3, h4, h5, h6{
+    color: #ffffff;
+    font-family: inherit !important;
+}

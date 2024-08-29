@@ -1,0 +1,9 @@
+:root {
+    --primary: #0a0a0a;
+    --secondary: #005eff;
+    --tertiary: #0c0c0c;
+    --quaternary: #f5f5f5;
+    --hover: #0a0a0a;
+    --glass: #0a0a0af7;
+    --recolor: brightness(0) saturate(100%) invert(32%) sepia(74%) saturate(7481%) hue-rotate(217deg) brightness(104%) contrast(103%);
+}
