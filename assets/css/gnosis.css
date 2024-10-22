@@ -1,0 +1,104 @@
+body {
+    background: url(/assets/img/gnosis/bg.gif);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width:100vw;
+    animation-name: blur;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    filter: drop-shadow(0 0 6px rgb(255, 255, 255));
+}
+
+div{
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    height: 500px;
+    width: 500px;
+}
+
+p{
+    margin-top: 10vh;
+    color: white;
+    font-family: Hoog;
+    text-align: left;
+}
+
+img {
+    pointer-events: none;
+    filter: invert();
+    width: 30vw;
+    position: absolute;
+    animation-name: jittery;
+    animation-duration: 20s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes jittery {
+    10% {
+        transform: translate(-2px, -3px) scale(1, 1);
+    }
+    20% {
+        transform: translate(3px, 2px) 
+    }
+    30% {
+        transform: translate(-4px, -5px) 
+    }
+    40% {
+        transform: translate(2px, 3px) 
+    }
+    50% {
+        transform: translate(-1px, -2px) scale(.95, .95);
+    }
+    60% {
+        transform: translate(0px, 3px) 
+    }
+    70% {
+        transform: translate(-2px, -4px) 
+    }
+    80% {
+        transform: translate(3px, 5px) 
+    }
+    90% {
+        transform: translate(-5px, -3px) 
+    }
+    100% {
+        transform: translate(-2px, -3px) scale(1, 1);
+    }
+}
+
+@keyframes blur {
+    0% {
+        backdrop-filter: blur(.5px) brightness(100%);
+    }
+    100% {
+        backdrop-filter: blur(.9px) brightness(150%);
+    }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+    body > div:nth-child(1) {
+        width: 100vw;
+        height: 15vh;
+        scale: 2;
+    }
+    p{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
