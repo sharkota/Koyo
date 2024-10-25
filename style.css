@@ -178,12 +178,16 @@ input:checked~ul {
     content: '- ';
 }
 
-.action:hover {
+.action:hover, .folder:hover {
     cursor: pointer;
 }
 
 .action::marker {
     content: '$ ';
+}
+
+#nav > ul > li:nth-child(11)::marker{
+    content: '🜀' !important
 }
 
 .show {
